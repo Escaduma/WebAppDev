@@ -1,0 +1,13 @@
+body{
+    background-color: pink;
+}
+
+p{
+    color:blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+img{
+    width:10px;
+}
