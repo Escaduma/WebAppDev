@@ -2,16 +2,6 @@ body{
     background-color: pink;
 }
 
-header{
-    color: blueviolet;
-    font-family: monospace;
-    text-align: center;
-}
-
-p{
-    color: purple;
-}
-
 table{
     color: purple;
 }
@@ -22,4 +12,57 @@ ul{
 
 img{
     width: 200px;
+}
+/* The main header with attributes that changes the look */
+#main-header{
+    text-align: center;
+    font-size: 32px;
+    font-family:'Courier New', Courier, monospace;
+    color: purple;
+    border: 5px dashed hotpink;
+    margin: 20px;
+    padding: 10px;
+
+}
+
+p{
+    margin: 30px;
+    padding: 10px;
+    border: 5px dotted purple;
+}
+ /* I create to classes to have controlo fohow the paragraph and the footer looks like, 
+ different to the others 
+ */
+.about{
+    color: darkblue;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.footer{
+    text-align: center;
+    border: 0px;
+    color:blueviolet;
+}
+
+/* I personalize the Link in my page by giving it a unique style */
+a:link{
+    color:deeppink;
+    text-decoration: bold;
+}
+a:visited{
+    color:hotpink;
+    text-decoration: bold;
+}
+
+a:hover{
+    color: deeppink;
+    text-decoration:dotted;
+    text-shadow: 2px 2px 5px;
+    font-size: 20px;
+}
+
+a:active{
+    color:darkmagenta;
+
 }
