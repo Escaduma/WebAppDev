@@ -1,0 +1,25 @@
+body{
+    background-color: pink;
+}
+
+header{
+    color: blueviolet;
+    font-family: monospace;
+    text-align: center;
+}
+
+p{
+    color: purple;
+}
+
+table{
+    color: purple;
+}
+
+ul{
+    color: blueviolet;
+}
+
+img{
+    width: 200px;
+}
