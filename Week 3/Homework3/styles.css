@@ -2,7 +2,7 @@ body{
     background-color: peachpuff;
 }
 
-table{
+table{ /* Here i decorate the table in general, giving them a color and a background and some other adjusts to the borders to make it look good*/
     border-color: #f445bf;
     border-width: 5px;
     font-size: medium;
@@ -13,14 +13,14 @@ table{
     background-color: pink;
 }
 
-.foot{
+.foot{ /* class made fo  the  footers to give them a better look by making it smaller and almost invisible*/
     text-align: center;
     font-size: small;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: darkorchid;
 }
 
-#main-header{
+#main-header{ /* ID used in the headers of each page, to make them look like the central idea of the page, with decoration and style*/
     text-align: center;
     font-family: cursive;
     color: purple;
@@ -30,34 +30,35 @@ table{
     border: 2px dashed deeppink;
 }
 
-.text{
+.text{ /* The text in the list is modified */
     color: #781942;
     font-family: fantasy;
     font-size: large;
     margin: 30px; 
     padding: 10px;
 }
-.info{
+
+.info{ /* Dedicated for each part of text in the table, it gives space between borders to make the text look better and to be readable*/
     padding: 10px;
     border-width: 3px;
     
 }
 
-a:link{
+a:link{ /* it turns the color of the link green when it is not open*/
     color: #40852E;
 }
 
-a:visited{
+a:visited{ /* I the link is opened it sould turn color pink*/
     color: deeppink;
 }
 
-a:hover{
+a:hover{ /* When the pointer crosses the link it changes the colot and size*/
     color: violet;
     text-decoration: wavy;
     text-shadow: 20cm;
     font-size: large;
 }
 
-a:active{
-    color: orange;
+a:active{ /* when you click the link it would change orange*/
+    color: orange; 
 }
