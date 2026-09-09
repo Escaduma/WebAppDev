@@ -1,0 +1,92 @@
+body{
+    background-color: #e8fcfc;
+}
+#main-header{ /*The main header where the main title is displayed */
+    color: #61084b;
+    text-align: center;
+    font-family:cursive;
+    font-size: 50px;
+    border: 5px dashed #fd4ba4;
+    margin: 20px;
+    padding: 10px;
+}
+
+.oliv{ /* this section modififues what is inside the Olivia to make it more perzonalized*/
+    border: 5px dotted #fc7cf1;
+    margin: 10px;
+    padding: 40px;
+}
+
+.humb{ /* this section modifies what is inside the Humbe to make it more perzonalized*/
+    border: 5px dotted #34449c;
+    margin: 10px;
+    padding: 40px;
+}
+.kat{ /* this section modifies what is inside the Katseye to make it more perzonalized*/
+    border: 5px dotted #bb1531;
+    margin: 10px;
+    padding: 40px;
+
+}
+
+.st{ /* this section modifies what is inside the Santos Bravos to make it more perzonalized*/
+    border: 5px dotted rgb(224, 7, 7);
+    margin: 10px;
+    padding: 40px;
+}
+
+.pp{ /* this section modifies what is inside the Peso Pluma to make it more perzonalized*/
+    border: 5px dotted #0e0202;
+    margin: 10px;
+    padding: 40px;
+
+}
+
+img{ /* give a size to all the images */
+    width: 200px;
+}
+
+.names{ /*Modifies the naems of each artist */
+    font-size: 30px;
+    font-family:cursive;
+    color: #0f0280;
+
+}
+
+p{ /* modifies the paragraph text to make it more readable */
+    color:#34449c;
+    font-size: 25px;
+
+}
+
+ol{
+    color:#0f0280;
+    padding: 10px;
+    margin: 10px;
+}
+a:link{
+    color:deeppink;
+    text-decoration: bold;
+}
+a:visited{
+    color:hotpink;
+    text-decoration: bold;
+}
+
+a:hover{
+    color: deeppink;
+    text-decoration:dotted;
+    text-shadow: 2px 2px 5px;
+    font-size: 20px;
+}
+
+a:active{
+    color:darkmagenta;
+
+}
+.images{ /* I used it to make the imaegs in the page more movible and give them movement in the web page*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
