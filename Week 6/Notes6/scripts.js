@@ -41,7 +41,7 @@
 
 // let score=Number(prompt("Enter your score(0-100)"));
 //Input is a string data type, we must convert it to the number data type
-// is (score>=90){
+// if (score>=90){
 //     console.log("A");
 // } else if (score>=80){
 //     console.log("B");
