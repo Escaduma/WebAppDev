@@ -5,7 +5,7 @@ let overDue=prompt("Do you have any overdue book? (y/n) ");
 if (overDue==="n"){ //Main part of the program which decides if you can borrow books depending if you have books on home or not.
     let age=Number(prompt("How old are you?"));
     let numBooks=Number(prompt("How many books are you borrowing? "));
-    let maxBooks;
+    let maxBooks=0;
     if (age>=18){ // The age decides how many books you can borrow
         maxBooks=5;
     } else {
