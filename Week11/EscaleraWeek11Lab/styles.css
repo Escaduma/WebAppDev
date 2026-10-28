@@ -1,0 +1,11 @@
+body{
+    background-color: #fdabeb;
+}
+
+.dark{background: #921a60; color:#ffffff}
+
+.title{
+    text-align: center;
+    color: #c024f0;
+    font-family: 'Arial', sans-serif;
+}
