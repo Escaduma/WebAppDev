@@ -1,0 +1,12 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #c47bff;
+    color: #7d0d5f;
+    padding: 1rem;
+}
+
+
+.dark{
+    background: #25083c;
+    color: #e0b7d5;
+}
