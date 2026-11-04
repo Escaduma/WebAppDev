@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Information</title> <!-- Fill in: page title -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>FORM</h1> <!-- Fill in: heading text -->
+
+  <form id="contactForm"> <!-- Give your form an id -->
+    <label for="name">Name:</label> <!-- Label text -->
+    <input id="name" type="text" placeholder="Your name" required />
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" placeholder="you@example.com" required />
+    <br><br>
+
+    <label for="message">Message:</label>
+    <textarea id="message" rows="4" placeholder="Write something..."></textarea>
+    <br><br>
+
+    <label for="phone">Phone Number:</label>
+    <input id="phone" type="number" min="0" max="10000000000"/>
+    <br><br>
+
+    <button type="submit">Click to submit</button> <!-- Button type and text -->
+
+  <section id="info"></section> <!-- Section to display results -->
+
+  <script src="scripts.js"></script> <!-- JS file name -->
+</body>
+</html>
+
+
+<!--===============================================================================
+
+What do IDs do?
+IDs Help to give to an attribute a way to call then in order to use them
+
+Why must your <script> tag be at the end of <body>?
+Because the script needs to run at the end, after the html, because if not
+a lot of functions are not gonna work properly 
+=================================================================================-->
