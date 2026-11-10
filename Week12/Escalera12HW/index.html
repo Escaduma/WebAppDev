@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Sign-up to receive updates of your favorite artist</h1>
+    <form id="signUp">
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="Type your name" required/>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input id="email" type="email" placeholder="email@example.com" required/>
+        <br><br>
+
+        <label for="artist">Select Artist:</label>
+        <select id="artist" required>
+            <option value="">--Select--</option>
+            <option value="Olivia Rodrigo">Olivia Rodrigo</option>
+            <option value="Sabrina Carpenter">Sabrina Carpenter</option>
+            <option value="Chapell Roan">Chapell Roan</option>
+            <option value="Adela">Adela</option>
+            <option value="Katseye">Katseye</option>
+            <option value="Humbe">Humbe</option>
+        </select>
+        <br><br>
+
+        <p>When do you want to receive updates?</p>
+        <label>
+            <input type="radio" name="receive" value="weekly" required>Weekly
+        </label>
+        <label>
+            <input type="radio" name="receive" value="daily" required>Daily
+        </label>
+        <label>
+            <input type="radio" name="receive" value="monthly" required>Monthly
+        </label>
+        <br><br>
+
+        <button type="submit">Click to submit</button>
+    </form>
+    <br><br>
+
+    <section id="show"></section>
+
+    <script src="scripts.js"></script> 
+</body>
+</html>
