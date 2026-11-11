@@ -11,11 +11,12 @@ form.addEventListener("submit", function(event){ //When the buttons is clicked t
     const name=document.getElementById("name").value;
     const email=document.getElementById("email").value;
     const artist=document.getElementById("artist").value;
+    const message=document.getElementById("message").value;
     //Obtains the value of the radio selected
     const updates=document.querySelector('input[name="receive"]:checked').value;
     
     // Show the message for the user
     show.innerHTML=
-        "Thanks " +name+ " for suscribe<br> You are going to receive updates "+updates+" of the artist "+artist+" in the following email: "+email;
+        "Thanks " +name+ " for suscribe<br> You are going to receive updates "+updates+" of the artist "+artist+" in the following email: "+email+"<br>With the following message:" +message;
 
 });
