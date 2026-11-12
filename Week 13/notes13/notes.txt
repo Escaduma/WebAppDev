@@ -1,0 +1,694 @@
+Part 1 — Understanding Form Validation
+Step 1: What is form validation?
+Imagine visiting a website where you need to create an account.
+
+You enter your information, but accidentally leave your email address blank.
+
+What should happen?
+
+A well-designed website should notify you that something is missing before processing your information.
+
+This is called form validation.
+
+Form validation checks whether user input meets certain requirements.
+
+For example:
+
+A name field should not be empty.
+
+An email address should follow a valid format.
+
+An age field might require a number greater than zero.
+
+A password might require a minimum number of characters.
+
+Why is validation important?
+Validation improves the user experience (UX) by helping users recognize and correct mistakes.
+
+It also reduces the amount of incorrect information submitted through a form.
+
+However, client-side validation alone does not make submitted data secure. Real applications must also validate information on the server.
+
+Example: A form with validation feedback
+Example Contact Form
+
+NameEmailSubmitTry submitting the form with empty fields, an incorrect email, and then valid information. Notice how the feedback changes.
+Think about it: Why is displaying a specific error message more helpful than simply telling the user that their form is incorrect?
+
+Part 2 — HTML5 Built-In Validation
+Step 2: Learn how HTML validates inputs
+Before writing JavaScript, you should understand that HTML already provides some built-in validation tools.
+
+These are called HTML5 validation attributes.
+
+Attribute
+
+Purpose
+
+required
+
+Prevents a field from being left empty
+
+type="email"
+
+Checks basic email formatting
+
+type="number"
+
+Accepts numeric input
+
+min
+
+Establishes a minimum allowed value
+
+max
+
+Establishes a maximum allowed value
+
+minlength
+
+Requires a minimum number of characters
+
+pattern
+
+Checks input against a specified pattern
+
+Step 3: Examine a simple HTML example
+Consider a website asking users to enter a username.
+
+<label for="username">Username:</label>
+
+<input
+  type="text"
+  id="username"
+  required
+  minlength="4"
+  placeholder="Enter a username"
+>
+This input has several important attributes.
+
+type="text" identifies the input as a text field.
+
+id="username" allows JavaScript to locate the element.
+
+required prevents the user from submitting an empty field.
+
+minlength="4" requires at least four characters.
+
+placeholder displays example text inside the field.
+
+Notice that no JavaScript is required for these checks.
+
+Step 4: Try HTML validation yourself
+Create a temporary HTML file to experiment with the username example.
+
+Add the input inside a <form> and include a submit button.
+
+Try submitting the form with:
+
+An empty username.
+
+A username containing only two characters.
+
+A username containing six characters.
+
+Observe how the browser responds.
+
+Important concept: Browsers normally perform built-in validation before firing the form's submit event. This means invalid HTML inputs can prevent your JavaScript submit handler from running.
+
+Part 3 — Accessing Form Values with JavaScript
+Step 5: Review DOM selection
+In Week 10, you learned how to select HTML elements using JavaScript.
+
+One method was:
+
+document.getElementById("elementID");
+You can use this same method to access form inputs.
+
+Consider the following HTML:
+
+<label for="city">City:</label>
+<input type="text" id="city">
+JavaScript can access this input:
+
+const cityInput = document.getElementById("city");
+However, this only selects the HTML element.
+
+To retrieve what the user typed, use the .value property.
+
+const city = cityInput.value;
+
+console.log(city);
+If the user typed Twin Falls, that value would be stored in the city variable when the JavaScript runs.
+
+Step 6: Understand .trim()
+Users sometimes accidentally enter spaces before or after their text.
+
+JavaScript provides a useful method called .trim().
+
+let username = "   student123   ";
+
+console.log(username.trim());
+Output:
+
+student123
+The .trim() method removes whitespace from the beginning and end of a string.
+
+This is useful when checking whether a required field is empty.
+
+For example:
+
+let message = "    ";
+
+if (message.trim() === "") {
+    console.log("The field is empty.");
+}
+Even though the original string contains spaces, the condition recognizes that no meaningful text was entered.
+
+Think about it: Why might checking value === "" be less effective than checking value.trim() === ""?
+
+Part 4 — Validating Forms with JavaScript
+Step 7: Understand the submit event
+In Week 11, you worked with JavaScript event listeners.
+
+Forms also have events.
+
+One important event is submit, which occurs when a user attempts to submit a form.
+
+The general structure is:
+
+form.addEventListener("submit", (event) => {
+
+    // Code runs when the form is submitted
+
+});
+Here:
+
+form represents the HTML form element.
+
+addEventListener() listens for an event.
+
+"submit" identifies the event.
+
+event provides information about the submission.
+
+Step 8: Prevent the default form behavior
+Normally, submitting a form may cause the browser to navigate or reload the page.
+
+When practicing JavaScript validation, we often want to prevent that behavior.
+
+We can use:
+
+event.preventDefault();
+For example:
+
+const demoForm = document.getElementById("demoForm");
+
+demoForm.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    console.log("The form was submitted.");
+
+});
+This example assumes an HTML form exists with the ID demoForm.
+
+The event listener stops the browser's normal submission behavior and displays a message in the console.
+
+Step 9: Use conditional statements for validation
+Remember that JavaScript uses if, else if, and else statements to make decisions.
+
+Validation uses these same concepts.
+
+For example, suppose a website asks users to enter a nickname.
+
+let nickname = "AB";
+
+if (nickname.length < 3) {
+    console.log("Nickname must be at least 3 characters.");
+} else {
+    console.log("Nickname accepted.");
+}
+This code checks whether the nickname contains at least three characters.
+
+Notice that the example only validates a JavaScript variable.
+
+For an actual HTML form, you would need to retrieve the input value from the webpage.
+
+Your turn: Connect the concepts
+Think about how you would combine the previous examples to:
+
+Select an input field.
+
+Retrieve its current value.
+
+Remove unnecessary whitespace.
+
+Check whether the value meets a requirement.
+
+Display an appropriate message.
+
+You will use this process in Lab #13.
+
+Part 5 — Displaying Error Messages on the Webpage
+Step 10: Understand inline feedback
+So far, many of our examples have displayed messages using console.log().
+
+However, users visiting a website typically do not have the developer console open.
+
+A better approach is to display messages directly on the webpage.
+
+This is called inline feedback.
+
+For example, instead of displaying a popup saying that a username is invalid, the website could display a message directly underneath the username field.
+
+Step 11: Use textContent to display messages
+Consider the following HTML:
+
+<label for="favoriteColor">Favorite Color:</label>
+<input type="text" id="favoriteColor">
+
+<p id="colorMessage"></p>
+The paragraph is initially empty.
+
+JavaScript can update it:
+
+const colorMessage = document.getElementById("colorMessage");
+
+colorMessage.textContent = "Please enter your favorite color.";
+The message will now appear inside the paragraph.
+
+You can also clear the message:
+
+colorMessage.textContent = "";
+This is important because error messages should disappear once the user corrects their input.
+
+Step 12: Add CSS feedback
+CSS can make validation messages easier to recognize.
+
+For example:
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+.success {
+    color: green;
+    font-size: 14px;
+}
+JavaScript can assign one of these classes to an element:
+
+colorMessage.className = "error";
+You can also change styles directly:
+
+colorMessage.style.color = "red";
+Both approaches work, but CSS classes are generally better for keeping styling separate from JavaScript.
+
+Step 13: Understand CSS validation selectors
+CSS also includes selectors for valid and invalid form inputs.
+
+input:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 2px solid green;
+}
+These styles respond to the input's HTML validation state.
+
+For example, an input using required will be considered invalid when empty.
+
+Something to consider: An empty required input may immediately appear red, even before the user interacts with it. Think about whether that creates a good user experience.
+
+Part 6 — Introduction to Regular Expressions (Regex)
+Step 14: What is Regex?
+A regular expression, often called Regex, is a pattern used to search for or validate text.
+
+Instead of checking whether text matches one specific word, Regex can check whether it follows a certain structure.
+
+For example, Regex can help validate:
+
+Phone numbers.
+
+ZIP codes.
+
+Email addresses.
+
+Password requirements.
+
+Identification codes.
+
+Regex can look complicated at first, but you only need to understand some basic patterns this week.
+
+Step 15: Examine a simple Regex pattern
+Suppose we want to check whether a user entered a three-digit number.
+
+We could use:
+
+const numberPattern = /^[0-9]{3}$/;
+Let's break this down.
+
+Symbol
+
+Meaning
+
+/ /
+
+Defines the regular expression
+
+^
+
+Beginning of the text
+
+[0-9]
+
+Any digit from 0 through 9
+
+{3}
+
+Exactly three occurrences
+
+$
+
+End of the text
+
+This pattern accepts:
+
+123
+
+456
+
+999
+
+It rejects:
+
+12
+
+1234
+
+ABC
+
+Step 16: Test a Regex pattern with JavaScript
+JavaScript provides the .test() method to check whether text matches a pattern.
+
+const numberPattern = /^[0-9]{3}$/;
+
+console.log(numberPattern.test("123"));
+console.log(numberPattern.test("12"));
+console.log(numberPattern.test("ABC"));
+Output:
+
+true
+false
+false
+The .test() method returns a Boolean value.
+
+true means the text matches the pattern.
+
+false means the text does not match.
+
+You can use that result inside an if statement.
+
+let code = "123";
+
+if (numberPattern.test(code)) {
+    console.log("Valid code.");
+} else {
+    console.log("Invalid code.");
+}
+Step 17: Understand email validation with Regex
+Email addresses have a more complicated structure than three-digit numbers.
+
+For example:
+
+student@example.com
+
+A basic email Regex might look like this:
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+Here's a simplified breakdown.
+
+Pattern
+
+Meaning
+
+^
+
+Start of the text
+
+[^\s@]+
+
+One or more characters that are not whitespace or @
+
+@
+
+Requires the @ symbol
+
+[^\s@]+
+
+Requires text after the @
+
+\.
+
+Requires a period
+
+[^\s@]+
+
+Requires text after the period
+
+$
+
+End of the text
+
+This is a basic format check, not a guarantee that an email address exists or can receive messages.
+
+For Lab #13, you will use Regex to help validate email addresses.
+
+You do not need to memorize every Regex symbol, but you should understand how a pattern is tested and why it is useful.
+
+Part 7 — Validating Inputs When Users Leave a Field
+Step 18: Understand the blur event
+So far, we have discussed validation when a form is submitted.
+
+However, many websites provide feedback before the user clicks Submit.
+
+One way to accomplish this is through the blur event.
+
+The blur event occurs when an element loses focus.
+
+For example:
+
+A user clicks inside a username field.
+
+They type a username.
+
+They click another field or press Tab.
+
+The username field loses focus.
+
+JavaScript can check the entered value.
+
+Step 19: Examine a blur event listener
+Consider an input with the ID favoriteGame.
+
+const gameInput = document.getElementById("favoriteGame");
+
+gameInput.addEventListener("blur", () => {
+
+    console.log("The user left the field.");
+
+});
+Whenever the user leaves the input, the message appears in the console.
+
+Now consider adding a condition:
+
+gameInput.addEventListener("blur", () => {
+
+    if (gameInput.value.trim() === "") {
+        console.log("Please enter a game.");
+    }
+
+});
+This example checks whether the input is empty after the user leaves the field.
+
+Step 20: Apply blur validation to inline feedback
+The previous example only displays a console message.
+
+For a better user experience, you would want to display that message underneath the input.
+
+Think back to Part 5, where you learned how to update a paragraph using textContent.
+
+Your challenge: How could you combine a blur event listener, an if statement, and textContent to display an error message when the user leaves a field empty?
+
+You will need to apply this concept in your lab.
+
+Part 8 — Real-Time Validation
+Step 21: Understand the input event
+Another useful JavaScript event is input.
+
+Unlike blur, which occurs when the user leaves a field, the input event occurs whenever the input's value changes through user interaction.
+
+For example:
+
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", () => {
+
+    console.log(searchInput.value);
+
+});
+As the user types, JavaScript displays the current value in the console.
+
+Step 22: Compare validation events
+Event
+
+When it occurs
+
+Common use
+
+submit
+
+User submits the form
+
+Final validation
+
+blur
+
+User leaves a field
+
+Field-specific feedback
+
+input
+
+User changes an input value
+
+Live feedback
+
+Which event should you use?
+It depends on the situation.
+
+For example, checking password strength while someone types can be helpful.
+
+However, immediately displaying an error after someone types the first character of an email address might be distracting.
+
+For Lab #13, your main focus will be on submit and blur events.
+
+Part 9 — Combining Everything
+Step 23: Understand the overall validation process
+You have now learned the individual components needed to validate a form.
+
+The next challenge is combining them.
+
+Here is the general process:
+
+image.png
+
+Step 24: Plan before coding
+When creating a form validation system, ask yourself:
+
+Which HTML elements need validation?
+
+What makes each input valid or invalid?
+
+Which event should trigger the validation?
+
+Where should error messages appear?
+
+What should happen when the user fixes an error?
+
+What should happen when all inputs are valid?
+
+Planning these details before writing JavaScript will make your code easier to organize.
+
+Step 25: Understand resetting a form
+After a successful submission, some forms clear their input fields.
+
+JavaScript provides a method for this:
+
+form.reset();
+This resets the form controls to their default values.
+
+However, it does not automatically clear custom error messages you added with textContent, or remove classes you applied to feedback elements.
+
+You must handle those separately.
+
+Also remember that resetting a form is not the same as sending information to a database or server.
+
+Part 10 — Common Problems and Troubleshooting
+When working on Lab #13, you may encounter errors. Before asking for help, review the following.
+
+Problem
+
+What to investigate
+
+JavaScript does not run
+
+Check the script filename and location in HTML
+
+Cannot read properties of null
+
+Check whether the HTML element ID matches your JavaScript
+
+Form refreshes unexpectedly
+
+Review preventDefault()
+
+Error message does not appear
+
+Check the paragraph ID and textContent
+
+Error remains after correction
+
+Check when and where messages are cleared
+
+Regex rejects every value
+
+Test the pattern using .test() and console.log()
+
+Blur validation does nothing
+
+Verify the event listener is attached to the correct input
+
+Submit handler does not run for invalid fields
+
+Remember HTML5 validation can block the submit event
+
+Important: Use your browser's Developer Tools and Console to troubleshoot problems.
+
+You have been using these tools throughout the semester, and they remain one of the best ways to identify JavaScript errors.
+
+Part 11 — Preparing for Lab #13
+You are now ready to begin Lab #13: Form Validation & UX Feedback.
+
+In the lab, you will create a form that uses HTML5 validation, JavaScript event listeners, Regex, and inline feedback messages.
+
+You will also extend the form by adding another field that requires validation.
+
+Before starting your lab
+Make sure you understand how to:
+
+Select HTML elements using getElementById().
+
+Retrieve input values using .value.
+
+Use .trim() to remove unnecessary whitespace.
+
+Create submit and blur event listeners.
+
+Use preventDefault() when handling form submissions.
+
+Use conditional statements to validate values.
+
+Display and clear messages using textContent.
+
+Test Regex patterns using .test().
+
+Apply CSS classes to feedback messages.
+
+Final reminders
+These notes are a reference, not a complete solution. You should expect to refer back to previous weeks, experiment with your code, and troubleshoot problems as you complete the assignment.
+
+You are encouraged to use console.log() to test values and understand what your JavaScript is doing.
+
+The goal is not simply to get the form working. The goal is to understand why your validation works and how JavaScript improves the user experience.

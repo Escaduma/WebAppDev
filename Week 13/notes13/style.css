@@ -1,0 +1,18 @@
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+.success {
+    color: green;
+    font-size: 14px;
+}
+
+/* These respond to an invalid value, for example the required method, the color will change depending if it is valid or not */
+input:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 2px solid green;
+}
