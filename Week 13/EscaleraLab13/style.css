@@ -1,0 +1,20 @@
+body{
+    background-color: #deb3ff;
+}
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+    max-width: 400px;
+}
+
+label {
+    font-weight: bold;
+}
